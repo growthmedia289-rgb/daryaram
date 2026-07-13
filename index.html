@@ -23,7 +23,7 @@
     {"@context":"https://schema.org","@type":"Hospital","name":"Darya Ram Hospital","description":"Best Multi Speciality Hospital in Sonipat, Haryana providing 24x7 Emergency Care, General Medicine, Pain Management, Gynecology, Dentistry and more.","address":{"@type":"PostalAddress","addressLocality":"Sonipat","addressRegion":"Haryana","addressCountry":"IN"},"telephone":"+919999261418","email":"info@daryaramhospital.com","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"medicalSpecialty":["GeneralMedicine","PainManagement","Gynecology","Dentistry","SpineCare"]}
     </script>
     <link rel="stylesheet" href="styles.css">
-   <style>
+    <style>
         /* Ensure navbar always stays on top of everything */
         #navbar {
             z-index: 9999 !important;
@@ -198,7 +198,6 @@
             </div>
         </div>
     </div>
-+
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -253,13 +252,13 @@
                 </div>
             </div>
         </div>
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
+        <div class="absolute bottom-8 left-1/2 scroll-indicator">
             <a href="#welcome" class="flex flex-col items-center gap-2 text-text-lighter hover:text-primary transition-colors" aria-label="Scroll down"><span class="text-xs font-medium">Scroll</span><i data-lucide="chevron-down" class="w-5 h-5"></i></a>
         </div>
     </section>
 
     <!-- Welcome Section -->
-    <section id="welcome" class="py-16 lg:py-24 bg-white">
+    <section id="welcome" class="py-16 lg:py-24 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div class="fade-left">
@@ -279,7 +278,7 @@
     </section>
 
     <!-- Comprehensive Healthcare -->
-    <section class="py-16 lg:py-24 bg-bg">
+    <section class="py-16 lg:py-24 bg-bg scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-14">
                 <span class="fade-up inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">Our Services</span>
@@ -337,7 +336,7 @@
     </section>
 
     <!-- Patient-Centered Approach -->
-    <section class="py-16 lg:py-24 bg-white">
+    <section class="py-16 lg:py-24 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 <div class="fade-left space-y-5 order-2 lg:order-1">
@@ -365,14 +364,14 @@
                     </div>
                 </div>
                 <div class="fade-right order-1 lg:order-2">
-                    <img src="C:\Users\asus\Desktop\ai website\machine.jpg"alt="Patient-centered care at Darya Ram Hospital" class="rounded-2xl shadow-lg w-full h-[450px] object-cover">
+                    <img src="C:\Users\asus\Desktop\ai website\machine.jpg" alt="Patient-centered care at Darya Ram Hospital" class="rounded-2xl shadow-lg w-full h-[450px] object-cover">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Our Specialists -->
-    <section class="py-16 lg:py-24 bg-bg">
+    <section class="py-16 lg:py-24 bg-bg scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-2xl mx-auto mb-14">
                 <span class="fade-up inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-3">Our Specialists</span>
@@ -421,12 +420,11 @@
                     </div>
                 </div>
             </div>
-          
         </div>
     </section>
 
     <!-- Hospital Services Summary -->
-    <section class="py-16 lg:py-20 bg-white">
+    <section class="py-16 lg:py-20 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-gradient-to-br from-primary to-primary-dark rounded-3xl p-8 lg:p-14 text-white relative overflow-hidden">
                 <div class="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3"></div>
@@ -547,5 +545,48 @@
     </footer>
 
     <script src="scripts.js"></script>
+    <script>
+        // === Mobile Menu Toggle ===
+        const openMenuBtn = document.getElementById('openMenuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuOverlay = document.getElementById('menuOverlay');
+
+        function openMenu() {
+            mobileMenu.classList.add('active');
+            menuOverlay.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            mobileMenu.classList.remove('active');
+            menuOverlay.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        openMenuBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuOverlay.addEventListener('click', closeMenu);
+
+        // Close menu when clicking a mobile link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // === Navbar Scroll Shadow ===
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // === Initialize Lucide Icons ===
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
 </body>
 </html>
