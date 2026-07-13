@@ -1,65 +1,206 @@
 <!-- ============================================================
      PAGE: PATIENT EDUCATION — patient-education.html
      ============================================================ -->
-<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Health articles and patient guides from Darya Ram Hospital Sonipat – Back pain, Sciatica, Arthritis, PRP Therapy, Cervical Pain, Knee Pain, Frozen Shoulder, Migraine, Neuropathic Pain, Sports Injuries.">
-    <title>Health Articles & Patient Guides | Darya Ram Hospital</title>
+    <meta name="description" content="Darya Ram Hospital – Best Multi Speciality Hospital in Sonipat, Haryana. 24×7 Emergency Care, General Medicine, Pain Management, Gynecology, Dentistry & more. Call +91 99992 61418">
+    <meta name="keywords" content="Best Hospital in Sonipat, Multi Speciality Hospital Sonipat, Pain Management Hospital Sonipat, Emergency Hospital Sonipat, Dentist in Sonipat, Gynecologist in Sonipat, Darya Ram Hospital Sonipat, Healthcare in Sonipat">
+    <meta name="author" content="Darya Ram Hospital">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Darya Ram Hospital | Best Multi Speciality Hospital in Sonipat">
+    <meta property="og:description" content="Trusted healthcare for every family. 24×7 Emergency, General Medicine, Pain Management, Gynecology, Dentistry & more.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
+    <title>Darya Ram Hospital | Best Multi Speciality Hospital in Sonipat, Haryana</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script>tailwind.config={theme:{extend:{colors:{primary:'#0A5EB0','primary-dark':'#084A8D','primary-light':'#E8F2FC',secondary:'#2E8B57','secondary-dark':'#236B43','secondary-light':'#E8F5EE',accent:'#00AEEF','accent-light':'#E6F7FD',bg:'#F8FAFC','bg-alt':'#F1F5F9',text:'#1F2937','text-light':'#6B7280','text-lighter':'#9CA3AF',border:'#E5E7EB'},fontFamily:{poppins:['Poppins','sans-serif'],inter:['Inter','sans-serif']}}}}</script>
+    <script>
+        tailwind.config={theme:{extend:{colors:{primary:'#0A5EB0','primary-dark':'#084A8D','primary-light':'#E8F2FC',secondary:'#2E8B57','secondary-dark':'#236B43','secondary-light':'#E8F5EE',accent:'#00AEEF','accent-light':'#E6F7FD',bg:'#F8FAFC','bg-alt':'#F1F5F9',text:'#1F2937','text-light':'#6B7280','text-lighter':'#9CA3AF',border:'#E5E7EB'},fontFamily:{poppins:['Poppins','sans-serif'],inter:['Inter','sans-serif']}}}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Hospital","name":"Darya Ram Hospital","description":"Best Multi Speciality Hospital in Sonipat, Haryana providing 24x7 Emergency Care, General Medicine, Pain Management, Gynecology, Dentistry and more.","address":{"@type":"PostalAddress","addressLocality":"Sonipat","addressRegion":"Haryana","addressCountry":"IN"},"telephone":"+919999261418","email":"info@daryaramhospital.com","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"medicalSpecialty":["GeneralMedicine","PainManagement","Gynecology","Dentistry","SpineCare"]}
+    </script>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Ensure navbar always stays on top of everything */
+        #navbar {
+            z-index: 9999 !important;
+        }
+        /* Mobile menu and overlay stacking */
+        #mobileMenu {
+            z-index: 10001 !important;
+        }
+        #menuOverlay {
+            z-index: 10000 !important;
+        }
+        /* Sticky buttons below navbar but above content */
+        .sticky-btn {
+            z-index: 9998 !important;
+        }
+        /* Pulse ring animation for emergency badge */
+        .pulse-ring {
+            animation: pulseRing 1.5s ease-out infinite;
+        }
+        @keyframes pulseRing {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
+            100% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+        }
+        /* Emergency pulse */
+        .emergency-pulse {
+            animation: emergencyPulse 1s ease-in-out infinite;
+        }
+        @keyframes emergencyPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
+        }
+        /* Scroll indicator bounce */
+        .scroll-indicator {
+            animation: scrollBounce 2s ease-in-out infinite;
+        }
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+        /* Doctor card image hover */
+        .doctor-img {
+            transition: transform 0.5s ease;
+        }
+        .doctor-card:hover .doctor-img {
+            transform: scale(1.08);
+        }
+        /* Desktop nav links styling */
+        .desktop-nav-link {
+            position: relative;
+            color: #6B7280;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            padding: 0.375rem 0;
+            transition: color 0.2s ease;
+            white-space: nowrap;
+        }
+        .desktop-nav-link:hover {
+            color: #0A5EB0;
+        }
+        .desktop-nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #0A5EB0;
+            transition: width 0.3s ease;
+        }
+        .desktop-nav-link:hover::after {
+            width: 100%;
+        }
+        /* Mobile menu animation */
+        #mobileMenu {
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #mobileMenu.active {
+            transform: translateX(0);
+        }
+        /* Navbar shadow on scroll */
+        #navbar.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        /* Hide scrollbar for nav on desktop */
+        .desktop-nav-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .desktop-nav-scroll::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 <body class="font-inter text-text bg-bg">
 
-    <a href="tel:+919999261418" class="sticky-btn fixed bottom-6 left-6 z-50 bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-primary/30" aria-label="Call"><i data-lucide="phone" class="w-6 h-6"></i></a>
-    <a href="https://wa.me/919999261418" target="_blank" rel="noopener noreferrer" class="sticky-btn fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30" aria-label="WhatsApp"><svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    <!-- Sticky Call Button -->
+    <a href="tel:+919999261418" class="sticky-btn fixed bottom-6 left-6 bg-primary text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-110 transition-transform" aria-label="Call Darya Ram Hospital">
+        <i data-lucide="phone" class="w-6 h-6"></i>
+    </a>
+    <!-- Sticky WhatsApp Button -->
+    <a href="https://wa.me/919999261418?text=Hello%20Darya%20Ram%20Hospital%2C%20I%20need%20some%20information." target="_blank" rel="noopener noreferrer" class="sticky-btn fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform" aria-label="WhatsApp Darya Ram Hospital">
+        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
-        <nav id="navbar" class="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-border transition-all duration-300">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md border-b border-border transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
                 <a href="index.html" class="flex items-center gap-3 flex-shrink-0">
-                    <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary rounded-xl flex items-center justify-center"><i data-lucide="heart-pulse" class="w-5 h-5 lg:w-6 lg:h-6 text-white"></i></div>
-                    <div><h1 class="text-sm lg:text-base font-poppins font-bold text-text leading-tight">Darya Ram<br class="sm:hidden"> Hospital</h1><p class="text-[10px] text-text-lighter leading-none hidden sm:block">Sonipat, Haryana</p></div>
+                    <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary rounded-xl flex items-center justify-center">
+                        <i data-lucide="heart-pulse" class="w-5 h-5 lg:w-6 lg:h-6 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-sm lg:text-base font-poppins font-bold text-text leading-tight">Darya Ram<br class="sm:hidden"> Hospital</h1>
+                        <p class="text-[10px] text-text-lighter leading-none hidden sm:block">Sonipat, Haryana</p>
+                    </div>
                 </a>
-                <div class="hidden lg:flex items-center gap-7">
-                   <br>
-            <a href="index.html">Home</a>
-            <a href="about.html">About us</a>
-            <a href="why choose us.html">Why Choose Us</a>
-            <a href="doctors.html">Doctors</a>
-            <a href="deparments.html">Departments</a>
-            <a href="procedures.html">Procedures</a>
-            <a href="conditions.html">Conditions</a>
-            
-            <a href="testimonials.html">Testimonials</a>
-            <a href="faq.html">FAQs</a>
-            <a href="contact.html">Contact</a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden lg:flex items-center gap-5 xl:gap-6 desktop-nav-scroll overflow-x-auto">
+                    <a href="about.html" class="desktop-nav-link">About Us</a>
+                    <a href="why choose us.html" class="desktop-nav-link">Why Choose Us</a>
+                    <a href="doctors.html" class="desktop-nav-link">Doctors</a>
+                    <a href="deparments.html" class="desktop-nav-link">Departments</a>
+                    <a href="procedures.html" class="desktop-nav-link">Procedures</a>
+                    <a href="conditions.html" class="desktop-nav-link">Conditions</a>
+                    <a href="patient-education.html" class="desktop-nav-link">Education Hub</a>
+                    <a href="testimonials.html" class="desktop-nav-link">Testimonials</a>
+                    <a href="faq.html" class="desktop-nav-link">FAQs</a>
+                    <a href="contact.html" class="desktop-nav-link">Contact</a>
                 </div>
-                
+
+                <!-- Hamburger Menu Button (Mobile/Tablet) -->
+                <button id="openMenuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-bg-alt transition-colors" aria-label="Open menu">
+                    <i data-lucide="menu" class="w-6 h-6 text-text"></i>
+                </button>
             </div>
         </div>
-        <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl z-50 lg:hidden">
-            <div class="flex items-center justify-between p-5 border-b border-border"><h2 class="font-poppins font-bold text-text">Menu</h2><button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-bg-alt transition-colors" aria-label="Close menu"><i data-lucide="x" class="w-5 h-5 text-text"></i></button></div>
-            <div class="p-5 space-y-1 overflow-y-auto max-h-[calc(100vh-80px)]">
-                <a href="index.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Home</a>
-                <a href="about.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-primary bg-primary-light">About Us</a>
-                <a href="doctors.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Doctors</a>
-                <a href="departments.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Departments</a>
-                <a href="contact.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Contact</a>
-                <div class="pt-4 space-y-3">
-                    <a href="tel:+919999261418" class="flex items-center justify-center gap-2 w-full bg-primary text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors"><i data-lucide="phone" class="w-4 h-4"></i> Call: +91 99992 61418</a>
-                </div>
-            </div>
-        </div>
-        <div id="menuOverlay" class="fixed inset-0 bg-black/40 z-40 hidden lg:hidden"></div>
     </nav>
+
+    <!-- Mobile Menu (Moved OUTSIDE the nav for proper stacking) -->
+    <div id="menuOverlay" class="fixed inset-0 bg-black/40 hidden lg:hidden"></div>
+    <div id="mobileMenu" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white shadow-2xl lg:hidden">
+        <div class="flex items-center justify-between p-5 border-b border-border">
+            <h2 class="font-poppins font-bold text-text">Menu</h2>
+            <button id="closeMenuBtn" class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-bg-alt transition-colors" aria-label="Close menu">
+                <i data-lucide="x" class="w-5 h-5 text-text"></i>
+            </button>
+        </div>
+        <div class="p-5 space-y-1 overflow-y-auto max-h-[calc(100vh-80px)]">
+            <a href="index.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-primary bg-primary-light">Home</a>
+            <a href="about.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">About Us</a>
+            <a href="why choose us.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Why Choose Us</a>
+            <a href="doctors.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Doctors</a>
+            <a href="deparments.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Departments</a>
+            <a href="procedures.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Procedures</a>
+            <a href="conditions.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Conditions</a>
+            <a href="patient-education.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Education Hub</a>
+            <a href="testimonials.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Testimonials</a>
+            <a href="faq.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">FAQs</a>
+            <a href="contact.html" class="mobile-link block px-4 py-3 rounded-lg text-sm font-medium text-text hover:bg-primary-light hover:text-primary transition-colors">Contact</a>
+            <div class="pt-4 space-y-3">
+                <a href="tel:+919999261418" class="flex items-center justify-center gap-2 w-full bg-primary text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-primary-dark transition-colors">
+                    <i data-lucide="phone" class="w-4 h-4"></i> Call: +91 99992 61418
+                </a>
+                <a href="https://wa.me/919999261418" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white px-5 py-3 rounded-full text-sm font-semibold hover:bg-[#20BD5A] transition-colors">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Page Header -->
     <section class="relative pt-28 pb-16 lg:pt-36 lg:pb-20 bg-gradient-to-br from-primary to-primary-dark overflow-hidden">
@@ -77,62 +218,62 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <article class="fade-up stagger-1 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/back-pain-recurring-article/600/300.jpg" alt="Back Pain article" class="w-full h-48 object-cover">
+                   
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-primary bg-primary-light px-3 py-1 rounded-full mb-3">Pain Management</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Why Does Back Pain Keep Returning?</h3><p class="text-text-light text-sm leading-relaxed">Back pain can keep returning when the underlying cause is not properly treated. Common reasons include poor posture, prolonged sitting, weak back muscles, slipped discs, arthritis, repetitive strain, or previous spinal injuries.</p></div>
                 </article>
 
                 <article class="fade-up stagger-2 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/pain-specialist-consult/600/300.jpg" alt="Pain Specialist article" class="w-full h-48 object-cover">
+                   
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-secondary bg-secondary-light px-3 py-1 rounded-full mb-3">Guide</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">When Should You See a Pain Specialist?</h3><p class="text-text-light text-sm leading-relaxed">You should consult a pain specialist if your back pain lasts for more than a few weeks, keeps returning, radiates to your legs or arms, causes numbness or weakness, or interferes with your daily activities.</p></div>
                 </article>
 
                 <article class="fade-up stagger-3 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/arthritis-rheumatism-diff/600/300.jpg" alt="Arthritis article" class="w-full h-48 object-cover">
+                    
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-orange-500 bg-orange-50 px-3 py-1 rounded-full mb-3">Arthritis</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Difference Between Arthritis and Rheumatism</h3><p class="text-text-light text-sm leading-relaxed">Arthritis is a specific condition that causes inflammation, pain, and stiffness in one or more joints. Rheumatism is a broader term historically used to describe various conditions affecting joints, muscles, and connective tissues.</p></div>
                 </article>
 
                 <article class="fade-up stagger-4 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/prp-therapy-blood/600/300.jpg" alt="PRP Therapy article" class="w-full h-48 object-cover">
+                    
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-accent bg-accent-light px-3 py-1 rounded-full mb-3">Treatment</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Is PRP Treatment Effective?</h3><p class="text-text-light text-sm leading-relaxed">Platelet-Rich Plasma (PRP) therapy may be beneficial for certain musculoskeletal conditions, such as some tendon injuries and mild to moderate osteoarthritis. However, its effectiveness varies depending on the condition being treated.</p></div>
                 </article>
 
                 <article class="fade-up stagger-5 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/sciatica-nerve-pain/600/300.jpg" alt="Sciatica article" class="w-full h-48 object-cover">
+                   
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-primary bg-primary-light px-3 py-1 rounded-full mb-3">Spine Health</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Understanding Sciatica</h3><p class="text-text-light text-sm leading-relaxed">Sciatica is a condition caused by irritation or compression of the sciatic nerve, resulting in pain that radiates from the lower back through the buttock and down one or both legs. It may also be accompanied by numbness, tingling, or muscle weakness.</p></div>
                 </article>
 
                 <article class="fade-up stagger-6 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/cervical-neck-prevention/600/300.jpg" alt="Cervical Pain article" class="w-full h-48 object-cover">
+                    
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-secondary bg-secondary-light px-3 py-1 rounded-full mb-3">Prevention</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">How to Prevent Cervical Pain</h3><p class="text-text-light text-sm leading-relaxed">Cervical pain can often be prevented by maintaining good posture, taking regular breaks from prolonged sitting, using an ergonomic workstation, avoiding excessive mobile phone use, and performing regular neck stretching and strengthening exercises.</p></div>
                 </article>
 
                 <article class="fade-up stagger-7 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/knee-pain-natural-relief/600/300.jpg" alt="Knee Pain article" class="w-full h-48 object-cover">
+                    
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-accent bg-accent-light px-3 py-1 rounded-full mb-3">Wellness</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Managing Knee Pain Naturally</h3><p class="text-text-light text-sm leading-relaxed">Mild knee pain can often be managed with regular low-impact exercise, maintaining a healthy weight, strengthening the muscles around the knee, and avoiding activities that place excessive stress on the joint.</p></div>
                 </article>
 
                 <article class="fade-up stagger-8 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/frozen-shoulder-recovery/600/300.jpg" alt="Frozen Shoulder article" class="w-full h-48 object-cover">
+                    
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-pink-500 bg-pink-50 px-3 py-1 rounded-full mb-3">Recovery</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Frozen Shoulder: Symptoms & Recovery</h3><p class="text-text-light text-sm leading-relaxed">Frozen shoulder is a condition that causes pain, stiffness, and a gradual loss of movement in the shoulder joint. Recovery typically occurs in stages and may take several months, depending on the severity of the condition.</p></div>
                 </article>
 
                 <article class="fade-up stagger-9 health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/migraine-headache-diff/600/300.jpg" alt="Migraine article" class="w-full h-48 object-cover">
+                  
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-red-500 bg-red-50 px-3 py-1 rounded-full mb-3">Headache</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Migraine vs Regular Headache</h3><p class="text-text-light text-sm leading-relaxed">A regular headache usually causes mild to moderate pain and often resolves with rest or simple medication. A migraine is a neurological condition that typically causes intense, throbbing pain, often on one side of the head, and may be accompanied by nausea, vomiting, and sensitivity to light or sound.</p></div>
                 </article>
 
                 <article class="fade-up health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/health-checkup-benefits/600/300.jpg" alt="Health Checkup article" class="w-full h-48 object-cover">
+                   
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-secondary bg-secondary-light px-3 py-1 rounded-full mb-3">Prevention</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Benefits of Preventive Health Checkups</h3><p class="text-text-light text-sm leading-relaxed">Preventive health checkups help detect medical conditions at an early stage, often before symptoms appear. Regular screenings can identify risk factors for diseases such as diabetes, hypertension, heart disease, and certain cancers.</p></div>
                 </article>
 
                 <article class="fade-up health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/neuropathic-pain-nerve/600/300.jpg" alt="Neuropathic Pain article" class="w-full h-48 object-cover">
+                   
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-accent bg-accent-light px-3 py-1 rounded-full mb-3">Nerve Health</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Understanding Neuropathic Pain</h3><p class="text-text-light text-sm leading-relaxed">Neuropathic pain is caused by damage or dysfunction of the nerves rather than an injury to muscles or joints. It is often described as burning, shooting, tingling, or electric shock-like pain and may be accompanied by numbness or increased sensitivity to touch.</p></div>
                 </article>
 
                 <article class="fade-up health-tip-card bg-bg rounded-2xl overflow-hidden border border-border">
-                    <img src="https://picsum.photos/seed/sports-injury-prevention/600/300.jpg" alt="Sports Injuries article" class="w-full h-48 object-cover">
+                  
                     <div class="p-6"><span class="inline-block text-xs font-semibold text-orange-500 bg-orange-50 px-3 py-1 rounded-full mb-3">Sports</span><h3 class="font-poppins font-semibold text-text text-lg mb-2">Sports Injuries: Prevention & Recovery</h3><p class="text-text-light text-sm leading-relaxed">Sports injuries can affect muscles, ligaments, tendons, and joints due to overuse, improper technique, or sudden trauma. Many injuries can be prevented through proper warm-up, strength training, appropriate equipment, and correct exercise techniques.</p></div>
                 </article>
 
